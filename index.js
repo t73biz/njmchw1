@@ -6,6 +6,7 @@ const http = require('http');
 const url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
 
+// Create the server
 const server = http.createServer(function (req, res) {
   // Get the url and parse it.
   var parsedUrl = url.parse(req.url, true);
@@ -67,6 +68,7 @@ const server = http.createServer(function (req, res) {
   });
 });
 
+// Start the server
 server.listen(3000, function(){
   console.log("The server is listening on port 3000");
 });
@@ -79,6 +81,7 @@ handlers.notFound = function(data, callback) {
   callback(404);
 };
 
+// Hello endpoint handler
 handlers.hello = function(data, callback) {
   callback(200,{'message': 'Welcome, and thanks for using this enpoint!'});
 }
